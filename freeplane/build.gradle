@@ -89,7 +89,7 @@ bundleDeps.addAll(configurations.maclib.files.collect {
 })
 bundleDeps.add(0, "lib/freeplaneosgi-${project.version}.jar")
 // this is built from :freeplane_mac on a Mac!
-bundleDeps.add(0, "lib/freeplane_mac-${project.version}.jar")
+// bundleDeps.add(0, "lib/freeplane_mac-${project.version}.jar")
 bundleDeps.add(0, "lib/freeplaneeditor-${project.version}.jar")
 bundleDeps.add(0, "lib/freeplaneviewer.jar")
 
@@ -262,7 +262,7 @@ task copyOSGiJars(type: Copy) {
     from (configurations.lib) {
         include("*.jar")
     }
-    from (project(':freeplane_mac').jar.outputs.files)
+    // from (project(':freeplane_mac').jar.outputs.files)
     from (project(':freeplane_api').file('build/libs/freeplaneapi_viewer.jar'))
     into(globalBin + '/core/' + pluginid + '/lib/')
 }
@@ -347,7 +347,7 @@ task viewerJar(type: Jar) {
     includeEmptyDirs = false
 }
 
-copyOSGiJars.dependsOn tasks.getByPath(':freeplane_mac:jar')
+// copyOSGiJars.dependsOn tasks.getByPath(':freeplane_mac:jar')
 copyOSGiJars.dependsOn tasks.getByPath(':freeplane_api:viewerApiJar')
 copyOSGiJars.dependsOn editorJar
 copyOSGiJars.dependsOn viewerJar
