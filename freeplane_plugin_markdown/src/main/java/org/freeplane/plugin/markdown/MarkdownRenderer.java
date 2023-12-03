@@ -35,6 +35,8 @@ public class MarkdownRenderer extends AbstractContentTransformer implements IEdi
 	private static final String MARKDOWN_EDITOR_FONT_SIZE = "markdown_editor_font_size";
 	private static final String MARKDOWN_EDITOR_FONT = "markdown_editor_font";
 	private static final String MARKDOWN_EDITOR_DISABLE_INLINE = "markdown_disable_editor";
+	private static final String MARKDOWN_EDITOR_INITIAL_WIDTH = "markdown_editor_initial_width";
+	private static final String MARKDOWN_EDITOR_INITIAL_HEIGHT = "markdown_editor_initial_height";
 	static final String MARKDOWN_CONTENT_TYPE = "markdown";
 	static final String MARKDOWN_FORMAT = "markdownPatternFormat";
     private final Options options;
@@ -78,7 +80,9 @@ public class MarkdownRenderer extends AbstractContentTransformer implements IEdi
     private JRestrictedSizeScrollPane createScrollPane() {
         final JRestrictedSizeScrollPane scrollPane = new JRestrictedSizeScrollPane();
         UITools.setScrollbarIncrement(scrollPane);
-        scrollPane.setMinimumSize(new Dimension(0, 60));
+        final int scrollPaneWidth = ResourceController.getResourceController().getIntProperty(MARKDOWN_EDITOR_INITIAL_WIDTH);
+        final int scrollPaneHeight = ResourceController.getResourceController().getIntProperty(MARKDOWN_EDITOR_INITIAL_HEIGHT);
+        scrollPane.setMinimumSize(new Dimension(scrollPaneWidth, scrollPaneHeight));
         return scrollPane;
     }
 
