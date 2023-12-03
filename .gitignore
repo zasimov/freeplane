@@ -254,3 +254,6 @@ gradle-app.setting
 
 # # Work around https://youtrack.jetbrains.com/issue/IDEA-116898
 # gradle/wrapper/gradle-wrapper.properties
+
+# I don't know what is, but it is untracked:
+/freeplane_framework/fwdir/
