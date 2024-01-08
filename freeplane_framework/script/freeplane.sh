@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Force use Java 11 to avoid bugs (path is valid for Fedora 39):
+export PATH="/usr/lib/jvm/jre-11/bin:$PATH"
+
 # we only want to test the script, not Freeplane itself
 if ( echo "${DEBUG}" | grep -qe "script" ); then
 	set -x
